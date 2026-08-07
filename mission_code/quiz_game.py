@@ -3,7 +3,11 @@
 class QuizGame :
 
     def __init__ (self) :
-        self.menu_actions = {}
+        self.menu_actions = {
+            1 : "test",
+            2 : "test",
+            3 : "test"
+        }
 
     def show_menu(self):
             print("""
@@ -33,6 +37,17 @@ Quiz Game
 
             except ValueError:
                 print("숫자를 입력하세요.")
+
+    def run (self) :
+        while True :
+            self.show_menu()
+            menu = self.get_menu()
+
+            if menu == 0 :
+                print("프로그램을 종료합니다.")
+                break
+
+            self.menu_actions[menu]()
 
     def get_menu(self):
         return self.input_number("메뉴를 선택하세요: ", 0, max(self.menu_actions)) 
