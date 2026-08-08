@@ -16,3 +16,13 @@ class Quiz :
     def get_answer (self) :
         return self.answer
 
+    
+    def to_dict (self) :
+        return {
+            "question" : self.question,
+            "choices" : self.choices,
+            "answer" : self.answer,
+        }
+
+    
+
