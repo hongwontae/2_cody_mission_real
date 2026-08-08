@@ -1,6 +1,7 @@
 
 
 import json
+import random
 from quiz import Quiz
 
 class QuizGame :
@@ -11,7 +12,7 @@ class QuizGame :
         self.best_score = 0
         self.history = []
         self.menu_actions = {
-            1 : "test",
+            1 : self.play_quiz,
             2 : "test",
             3 : "test"
         }
@@ -122,4 +123,39 @@ Quiz Game
         except OSError :
             print("파일 저장에 실패했습니다.")
 
+    def play_quiz(self):
+        score = 0.0
 
+        print("\n===== 퀴즈 시작 =====")
+
+        count = self.input_number(f"몇 문제를 푸시겠습니까? (1~{len(self.quizzes)}): ",1,len(self.quizzes))
+
+        random_quizzes = random.sample(self.quizzes, count)
+
+        for i, quiz in enumerate(random_quizzes, start=1):
+            print(f"\n[{i}번 문제]")
+
+            quiz.print_quiz()
+
+            print()
+
+            answer = self.input_number("정답 번호를 입력하세요: ",1, len(quiz.choices))
+
+            if quiz.check_answer(answer):
+                print()
+                print("정답입니다!")
+                score +=1
+
+            else:
+                print(f"오답입니다! 정답은 {quiz.get_answer()}번 입니다.")
+
+        print("\n===== 퀴즈 종료 =====")
+        print(f"점수 : {score} / {float(count)}")
+
+        if score > self.best_score:
+            self.best_score = score
+            print("🎉 최고 점수가 갱신되었습니다!")
+        else :
+            print("최고 점수는 갱신되지 않았습니다.")
+
+        self.save_state()
