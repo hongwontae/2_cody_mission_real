@@ -1,13 +1,21 @@
 
 
+import json
+
+
 class QuizGame :
 
     def __init__ (self) :
+
+        self.quizzes = []
+        self.best_score = 0
+        self.history = []
         self.menu_actions = {
             1 : "test",
             2 : "test",
             3 : "test"
         }
+        self.load_state()
 
     def show_menu(self):
             print("""
@@ -60,6 +68,13 @@ Quiz Game
 
     def get_menu(self):
         return self.input_number("메뉴를 선택하세요: ", 0, max(self.menu_actions)) 
+
+    def load_state(self) :
+        try :
+            with open("state.json", "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except :
+            pass
 
 
 
