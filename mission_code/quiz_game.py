@@ -28,7 +28,13 @@ Quiz Game
         
         while True:
             try:
-                number = int(input(message).strip())
+                number = input(message).strip()
+
+                if number == "" :
+                    print("빈 입력은 받지 않습니다.")
+                    continue
+
+                number = int(number)
 
                 if minimum <= number <= maximum:
                     return number
