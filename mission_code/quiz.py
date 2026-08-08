@@ -24,5 +24,3 @@ class Quiz :
             "answer" : self.answer,
         }
 
-    
-
