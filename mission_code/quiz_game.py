@@ -45,15 +45,18 @@ Quiz Game
                 print("숫자를 입력하세요.")
 
     def run (self) :
-        while True :
-            self.show_menu()
-            menu = self.get_menu()
+        try :
+            while True :
+                self.show_menu()
+                menu = self.get_menu()
 
-            if menu == 0 :
-                print("프로그램을 종료합니다.")
-                break
+                if menu == 0 :
+                    print("프로그램을 종료합니다.")
+                    break
 
-            self.menu_actions[menu]()
+                self.menu_actions[menu]()
+        except (KeyboardInterrupt, EOFError) :
+            print("\n 프로그램을 안전하게 종료합니다.")
 
     def get_menu(self):
         return self.input_number("메뉴를 선택하세요: ", 0, max(self.menu_actions)) 
