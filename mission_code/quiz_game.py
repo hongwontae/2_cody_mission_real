@@ -7,14 +7,13 @@ class QuizGame :
     CHOICE_COUNT = 4
 
     def __init__ (self) :
-
         self.quizzes = []
         self.best_score = 0
         self.history = []
         self.menu_actions = {
             1 : self.play_quiz,
             2 : self.add_quiz,
-            3 : "test"
+            3 : self.show_quiz_list
         }
         self.load_state()
 
@@ -190,7 +189,18 @@ Quiz Game
         print()
         print("퀴즈가 추가되었습니다.")
 
+    def show_quiz_list(self):
+        print("\n===== 퀴즈 목록 =====")
 
+        if not self.quizzes:
+            print("등록된 퀴즈가 없습니다. 기본 퀴즈를 초기화합니다.")
+            self.init_quizzes()
+            self.save_state()
+
+        for i, quiz in enumerate(self.quizzes, start=1):
+            print(f"\n[{i}]")
+            quiz.print_quiz()
+            print(f"정답 : {quiz.get_answer()}번")
 
 
     
