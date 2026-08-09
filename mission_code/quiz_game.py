@@ -249,6 +249,7 @@ Quiz Game
 
         self.save_state()
 
+        print()
         print(f"'{deleted.question}' 퀴즈가 삭제되었습니다.")
 
     def save_history(self, quiz_count, score) :
