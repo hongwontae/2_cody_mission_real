@@ -111,4 +111,11 @@ C:\Users\dnjsx\Desktop\codyssey\2_cody_mission_final\mission_code
 
 ---
 
-# git 과제
+# Git 저장소 복제 실습
+![](./read_me_images/git_pratice_1.png)
+![](./read_me_images/git_pratice_2.png)
+![](./read_me_images/git_pratice_3.png)
+![](./read_me_images/git_pratice_4.png)
+![](./read_me_images/git_pratice_5.png)
+![](./read_me_images/git_pratice_6.png)
+![](./read_me_images/git_pratice_7.png)
