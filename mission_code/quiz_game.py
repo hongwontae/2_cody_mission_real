@@ -1,10 +1,10 @@
-
-
 import json
 import random
 from quiz import Quiz
 
 class QuizGame :
+
+    CHOICE_COUNT = 4
 
     def __init__ (self) :
 
@@ -13,7 +13,7 @@ class QuizGame :
         self.history = []
         self.menu_actions = {
             1 : self.play_quiz,
-            2 : "test",
+            2 : self.add_quiz,
             3 : "test"
         }
         self.load_state()
@@ -63,6 +63,15 @@ Quiz Game
             except ValueError:
                 print("숫자를 입력하세요.")
 
+    def input_text(self, message : str) -> str:
+        while True:
+            text = input(message).strip()
+
+            if text:
+                return text
+
+            print("빈 문자열은 입력할 수 없습니다.")
+
     def run (self) :
         try :
             while True :
@@ -74,8 +83,10 @@ Quiz Game
                     break
 
                 self.menu_actions[menu]()
+
         except (KeyboardInterrupt, EOFError) :
             print("\n 프로그램을 안전하게 종료합니다.")
+            self.save_state()
 
     def get_menu(self):
         return self.input_number("메뉴를 선택하세요: ", 0, max(self.menu_actions)) 
@@ -159,3 +170,27 @@ Quiz Game
             print("최고 점수는 갱신되지 않았습니다.")
 
         self.save_state()
+
+    def add_quiz (self) :
+        question = self.input_text("문제 : ")
+
+        choices = []
+
+        for i in range(1, self.CHOICE_COUNT+1):
+            choices.append(self.input_text(f"{i}번 보기 : "))
+
+        answer = self.input_number("정답 번호: ",1,len(choices))
+
+        quiz = Quiz(question, choices, answer)
+
+        self.quizzes.append(quiz)
+
+        self.save_state()
+
+        print()
+        print("퀴즈가 추가되었습니다.")
+
+
+
+
+    
