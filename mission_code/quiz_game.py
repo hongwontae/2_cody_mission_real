@@ -1,3 +1,4 @@
+import datetime
 import json
 import random
 from quiz import Quiz
@@ -9,6 +10,7 @@ class QuizGame :
     def __init__ (self) :
         self.quizzes = []
         self.best_score = 0
+        self.history = []
         self.menu_actions = {
             1 : self.play_quiz,
             2 : self.add_quiz,
@@ -109,6 +111,7 @@ Quiz Game
                 data = json.load(f)
 
             self.best_score = data["best_score"]
+            self.history = data.get("history", [])
             self.quizzes = []
 
             for quiz_data in data["quizzes"]:
@@ -137,7 +140,8 @@ Quiz Game
     def save_state(self):
         data = {
                 "best_score": self.best_score,
-                "quizzes": [quiz.to_dict() for quiz in self.quizzes],}
+                "quizzes": [quiz.to_dict() for quiz in self.quizzes],
+                "history": self.history}
         try :
             with open("state.json", "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=4)
@@ -181,6 +185,8 @@ Quiz Game
 
         print("\n===== 퀴즈 종료 =====")
         print(f"점수 : {score} / {float(count)}")
+
+        self.save_history(count, score)
 
         if score > self.best_score:
             self.best_score = score
@@ -244,4 +250,24 @@ Quiz Game
 
         print(f"'{deleted.question}' 퀴즈가 삭제되었습니다.")
 
-    
+    def save_history(self, quiz_count, score) :
+        record = {
+            "datetime": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "quiz_count": quiz_count,
+            "score": score
+        }
+        self.history.append(record)
+
+    def print_history(self):
+        if not self.history:
+            print("저장된 기록이 없습니다.")
+            return
+
+        print("\n===== 점수 기록 =====")
+
+        for i, record in enumerate(self.history, start=1):
+            print(f"[{i}]")
+            print(f"날짜 : {record['datetime']}")
+            print(f"푼 문제 수 : {record['quiz_count']}")
+            print(f"점수 : {record['score']}")
+            print()
