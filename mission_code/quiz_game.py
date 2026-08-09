@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 import json
 import random
 from quiz import Quiz
@@ -16,18 +16,19 @@ class QuizGame :
             2 : self.add_quiz,
             3 : self.show_quiz_list,
             4 : self.show_best_score,
-            5 : self.delete_quiz
+            5 : self.delete_quiz,
+            6 : self.print_history
         }
         self.load_state()
 
     def init_quizzes(self) :
         self.quizzes = [
-            Quiz("대한민국의 수도는?",["서울", "부산", "대구", "인천"],1),
-            Quiz("파이썬의 창시자는?", ["귀도 반 로섬", "제임스 고슬링", "비야네", "데니스 리치"],1),
-            Quiz("축구 감독인 사람은?", ["아카자", "홍명보", "펩시콜라", "펩"], 4),
-            Quiz("코디세이의 위치는?", ["평양", "쓰촨성", "약간포동", "개포동"], 4),
-            Quiz("학습 네이토의 정체는?", ["깡통", "할루시네이션", "AI Chat Bot", "네이트"],3),
-            Quiz("파이썬은 어떤 언어인가?", ["일본어", "인터프리터 언어", "스페인어", "인어"],2),
+            Quiz("대한민국의 수도는?",["서울", "부산", "대구", "인천"],1, "사람 제일 많은 곳"),
+            Quiz("파이썬의 창시자는?", ["귀도 반 로섬", "제임스 고슬링", "비야네", "데니스 리치"],1, "애니 이름 같음"),
+            Quiz("축구 감독인 사람은?", ["아카자", "홍명보", "펩시콜라", "펩"], 4, "한 글자"),
+            Quiz("코디세이의 위치는?", ["평양", "쓰촨성", "약간포동", "개포동"], 4, "네이버 지도 "),
+            Quiz("학습 네이토의 정체는?", ["깡통", "할루시네이션", "AI Chat Bot", "네이트"],3, "gpt 같은 거"),
+            Quiz("파이썬은 어떤 언어인가?", ["일본어", "인터프리터 언어", "스페인어", "인어"],2, "컴퓨터 언어"),
         ]
 
     def show_menu(self):
@@ -119,6 +120,7 @@ Quiz Game
                     quiz_data["question"],
                     quiz_data["choices"],
                     quiz_data["answer"],
+                    quiz_data["hint"],
                     )
 
                 self.quizzes.append(quiz)
@@ -206,7 +208,9 @@ Quiz Game
 
         answer = self.input_number("정답 번호: ",1,len(choices))
 
-        quiz = Quiz(question, choices, answer)
+        hint = self.input_text("힌트 : ")
+
+        quiz = Quiz(question, choices, answer, hint)        
 
         self.quizzes.append(quiz)
 

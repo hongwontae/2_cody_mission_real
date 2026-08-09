@@ -23,6 +23,7 @@ class Quiz :
             "question" : self.question,
             "choices" : self.choices,
             "answer" : self.answer,
+            "hint" : self.hint
         }
 
     def print_hint(self) :
