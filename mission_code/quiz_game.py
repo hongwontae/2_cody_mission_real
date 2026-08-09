@@ -9,7 +9,6 @@ class QuizGame :
     def __init__ (self) :
         self.quizzes = []
         self.best_score = 0
-        self.history = []
         self.menu_actions = {
             1 : self.play_quiz,
             2 : self.add_quiz,
@@ -97,7 +96,6 @@ Quiz Game
                 data = json.load(f)
 
             self.best_score = data["best_score"]
-            self.history = data.get("history", [])
             self.quizzes = []
 
             for quiz_data in data["quizzes"]:
@@ -126,8 +124,7 @@ Quiz Game
     def save_state(self):
         data = {
                 "best_score": self.best_score,
-                "quizzes": [quiz.to_dict() for quiz in self.quizzes],
-                "history": self.history}
+                "quizzes": [quiz.to_dict() for quiz in self.quizzes],}
         try :
             with open("state.json", "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=4)
