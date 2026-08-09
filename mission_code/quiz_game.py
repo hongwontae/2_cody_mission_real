@@ -13,7 +13,8 @@ class QuizGame :
             1 : self.play_quiz,
             2 : self.add_quiz,
             3 : self.show_quiz_list,
-            4 : self.show_best_score
+            4 : self.show_best_score,
+            5 : self.delete_quiz
         }
         self.load_state()
 
@@ -70,6 +71,18 @@ Quiz Game
                 return text
 
             print("빈 문자열은 입력할 수 없습니다.")
+
+    def confirm(self, message):
+        while True:
+            choice = input(message).strip().lower()
+
+            if choice == "y":
+                return True
+
+            if choice == "n":
+                return False
+
+            print("y 또는 n을 입력하세요.")
 
     def run (self) :
         try :
@@ -147,12 +160,21 @@ Quiz Game
 
             print()
 
+            hint_used = self.confirm("힌트를 보시겠습니까? (y/n) : ")
+
+            if hint_used:
+                quiz.print_hint()            
+
             answer = self.input_number("정답 번호를 입력하세요: ",1, len(quiz.choices))
 
             if quiz.check_answer(answer):
                 print()
                 print("정답입니다!")
-                score +=1
+
+                if hint_used :
+                    score += 0.5
+                else :
+                    score +=1
 
             else:
                 print(f"오답입니다! 정답은 {quiz.get_answer()}번 입니다.")
@@ -203,5 +225,23 @@ Quiz Game
     def show_best_score(self):
         print(f"\n현재 최고 점수 : {self.best_score}")
 
-## 파일 입출력 기능 완성 후 커밋한다.
+    def delete_quiz(self) :
+        if not self.quizzes:
+            print("삭제할 퀴즈가 없습니다.")
+            return
+
+        self.show_quiz_list()
+
+        num = self.input_number("삭제할 퀴즈 번호: ",1,len(self.quizzes))
+
+        if not self.confirm("정말 삭제하겠습니까? (y/n): "):
+            print("삭제가 취소되었습니다.")
+            return
+
+        deleted = self.quizzes.pop(num - 1)
+
+        self.save_state()
+
+        print(f"'{deleted.question}' 퀴즈가 삭제되었습니다.")
+
     
