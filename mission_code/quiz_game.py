@@ -13,7 +13,8 @@ class QuizGame :
         self.menu_actions = {
             1 : self.play_quiz,
             2 : self.add_quiz,
-            3 : self.show_quiz_list
+            3 : self.show_quiz_list,
+            4 : self.show_best_score
         }
         self.load_state()
 
@@ -202,5 +203,7 @@ Quiz Game
             quiz.print_quiz()
             print(f"정답 : {quiz.get_answer()}번")
 
+    def show_best_score(self):
+        print(f"\n현재 최고 점수 : {self.best_score}")
 
     
