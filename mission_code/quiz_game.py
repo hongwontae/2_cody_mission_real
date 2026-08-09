@@ -2,11 +2,8 @@ from datetime import datetime
 import json
 import random
 from quiz import Quiz
-
 class QuizGame :
-
     CHOICE_COUNT = 4
-
     def __init__ (self) :
         self.quizzes = []
         self.best_score = 0
