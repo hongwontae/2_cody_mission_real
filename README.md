@@ -60,9 +60,55 @@ C:\Users\dnjsx\Desktop\codyssey\2_cody_mission_final\mission_code
 ![](./read_me_images/quiz_game_1.png)
 ![](./read_me_images/quiz_game_2.png)
 
+---
 
 # 7. 개발 환경 스크린샷
 ![](./read_me_images/git_version.png)
 ![](./read_me_images/py_version.png)
 
+---
 
+# 8. git log --oneline --graph
+![](./read_me_images/git_log_oneline_graph.png)
+
+---
+
+# 9. 프로그램 실행 결과 스크린샷
+
+### 9-1. python main.py
+![](./read_me_images/python_main_py_terminal.png)
+
+### 9-2. 퀴즈 풀기
+![](./read_me_images/play_quiz_1.png)
+![](./read_me_images/play_quiz_2.png)
+![](./read_me_images/play_quiz_3.png)
+![](./read_me_images/play_quiz_4.png)
+
+### 9-3. 퀴즈 추가
+![](./read_me_images/add_quiz_1.png)
+![](./read_me_images/add_quiz_2.png)
+
+### 9-4. 퀴즈 목록
+![](./read_me_images/show_quiz_1.png)
+![](./read_me_images/show_quiz_2.png)
+![](./read_me_images/show_quiz_3.png)
+
+### 9-5. 최고 점수
+![](./read_me_images/best_score.png)
+
+### 9-6. 퀴즈 삭제
+![](./read_me_images/delete_quiz_1.png)
+![](./read_me_images/delete_quiz_2.png)
+![](./read_me_images/delete_quiz_3.png)
+![](./read_me_images/delete_quiz_4.png)
+![](./read_me_images/delete_quiz_5.png)
+![](./read_me_images/delete_quiz_6.png)
+
+
+### 9-7. 점수 기록 보기
+![](./read_me_images/show_history.png)
+
+
+---
+
+# git 과제
