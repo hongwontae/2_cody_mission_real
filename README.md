@@ -129,10 +129,6 @@ C:\Users\dnjsx\Desktop\codyssey\2_cody_mission_final\mission_code
 ![](./read_me_images/git_branch_4.png)
 ![](./read_me_images/git_branch_5.png)
 ![](./read_me_images/git_branch_6.png)
-![](./read_me_images/git_branch_7.png)
-![](./read_me_images/git_branch_8.png)
-![](./read_me_images/git_branch_9.png)
-
 
 ----
 
