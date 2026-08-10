@@ -1,0 +1,15 @@
+1. while
+    => 조건이 True인 동안 계속 반복하는 문입니다.
+
+2. 기본 문법
+while 조건:
+    실행할 코드
+
+3. 주로 사용자 입력 받을 때 주로 사용합니다.
+while True:
+    text = input("입력 : ")
+
+    if text == "exit":
+        break
+
+    print(text)

@@ -1,0 +1,62 @@
+1. for문
+    => 여러 개의 데이터를 하나씩 꺼내면서 반복하는 문법입니다.
+
+2. for문 문법
+    for 변수 in 반복가능한객체 :
+        실행할 코드
+    => 변수 : 하나씩 꺼낸 값을 저장하는 변수
+    => in : ~ 안에서 하나씩 꺼낸다.
+    => 반복 가능한 객체 : 리스트, 문자열, range() 등
+    => 들여쓰기를 벗어나면 for를 벗어난 것으로 간주합니다.
+
+3. 리스트 반복
+numbers = [10, 20, 30]
+for num in numbers:
+    print(num) // 10, 20, 30
+
+
+4. 문자열 반복
+name = "Python"
+for ch in name:
+    print(ch) // Python
+
+
+5. range()
+for i in range(5):
+    print(i) // 0 1 2 3 4
+=> 인덱스처럼 행동합니다. -> 0부터 n-1까지
+
+6. range(start, stop)
+for i in range(2, 7):
+    print(i) // 2 3 4 5 6
+=> start 이상 stop 미만
+
+7. range(start, stop, step)
+for i in range(1, 10, 2):
+    print(i)  // 1 3 5 7 9
+=> start 이상, stop 미만 + 2씩 뛰어넘음
+
+8. range(start, stop, 음수)
+for i in range(10, 0, -1):
+    print(i) // 10 9 8..
+=> 뒤부터 시작합니다.
+
+
+9. break
+    => 반복문 내부에서 break를 사용하면 즉시 반복문을 종료합니다.
+10. continue
+    => 현재 반복만 건너뜁니다.
+
+
+11. 딕셔너리 반복
+=> 일반적으로 딕셔너리를 반복하면 key가 값으로 전달됩니다.
+student = {
+    "name": "홍길동",
+    "age": 20
+}
+for key in student:
+    print(key) // name, age
+
+for key, value in student.items():
+    print(key, value) 
+=> items를 사용하면 key와 value 모두 가져옵니다.

@@ -1,0 +1,34 @@
+1. 함수
+    => 반복되는 코드를 하나의 이름으로 묶어 필요할 떄마다 호출해서 사용하는 기능입니다.
+
+2. 함수 정의
+    def 함수이름() : 
+        실행할 코드
+    
+3. 함수 호출
+    => 정의된-함수-이름();
+    => hello()
+
+4. 매개변수
+    => 함수에게 전달받는 변수입니다.
+    => 매개변수는 여러 개 받을 수 있습니다.
+    => def hello (name1, name2) :
+        print(name1)
+        print(name2)
+
+5. 반환값
+    => 함수가 계산한 결과를 밖으로 전달하는 것입니다.
+    => return 키워드를 사용합니다.
+    => def calculation (a, b) :
+        return a+b
+       return_value = calculation(10, 20)
+       print(return_value) // 30
+
+6. 파이썬은 여러 값을 반환할 수 있습니다.
+    => 실제로는 이 때 튜플을 반환합니다.
+    => def calc(a,b):
+        return a+b, a-b
+    => x, y = calc(10,3)
+        print(x)
+        print(y)
+
