@@ -119,3 +119,21 @@ C:\Users\dnjsx\Desktop\codyssey\2_cody_mission_final\mission_code
 ![](./read_me_images/git_pratice_5.png)
 ![](./read_me_images/git_pratice_6.png)
 ![](./read_me_images/git_pratice_7.png)
+
+---
+
+# Git 브랜치 생성 및 병합 기록
+![](./read_me_images/git_branch_1.png)
+![](./read_me_images/git_branch_2.png)
+![](./read_me_images/git_branch_3.png)
+![](./read_me_images/git_branch_4.png)
+![](./read_me_images/git_branch_5.png)
+![](./read_me_images/git_branch_6.png)
+![](./read_me_images/git_branch_7.png)
+![](./read_me_images/git_branch_8.png)
+![](./read_me_images/git_branch_9.png)
+
+
+----
+
+
