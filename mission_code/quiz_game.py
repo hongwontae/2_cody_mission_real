@@ -235,6 +235,8 @@ Quiz Game
     def delete_quiz(self) :
         if not self.quizzes:
             print("삭제할 퀴즈가 없습니다.")
+            self.init_quizzes()
+            self.save_state()
             return
 
         self.show_quiz_list()
